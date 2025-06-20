@@ -9,27 +9,37 @@ def load_prompt_file(prompt_file: str) -> list:
         return [line.strip() for line in f if line.strip()]
 
 @task(retries=2, retry_delay_seconds=5)
-def call_bedrock(prompts: list, model_id: str, aws_creds_block: str):
-    session = AwsCredentials.load(aws_creds_block).get_boto3_session()
+def call_bedrock(prompts: list, aws_creds_block: str):
+    aws = AwsCredentials.load(aws_creds_block)
+    session = aws.get_boto3_session()
     client = session.client("bedrock-runtime")
-    
+
     results = {}
     for prompt in prompts:
-        body = json.dumps({
-            "inputText": prompt,
-            "textGenerationConfig": {
-                "temperature": 0.7,
-                "topP": 0.9,
-                "maxTokenCount": 512
-            }
-        })
-        response = client.invoke_model(
-            modelId=model_id,
-            body=body,
+        messages = [
+            {"role": "user", "content": [{"type": "text", "text": prompt}]}
+        ]
+        body = {
+            "anthropic_version": "bedrock-2023-05-31",
+            "max_tokens": 512,
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "messages": messages
+        }
+
+        resp = client.invoke_model(
+            modelId="anthropic.claude-3-sonnet-20240229-v1:0",
+            body=json.dumps(body),
             contentType="application/json",
             accept="application/json"
         )
-        results[prompt] = json.loads(response["body"].read())["results"][0]["outputText"]
+
+
+        data = json.loads(resp["body"].read())
+        assistant_msg = data.get("content", [{}])[0].get("text") \
+                      or (data.get("messages", [{}])[0].get("content", [{}])[0].get("text"))
+        results[prompt] = assistant_msg
+
     return results
 
 @task
@@ -43,6 +53,6 @@ def bedrock_flow(prompt_file: str = "prompts.txt",
                  model_id: str = "anthropic.claude-3-sonnet-20240229-v1:0",
                  aws_creds_block: str = "bedrock-creds"):
     prompts = load_prompt_file(prompt_file)
-    results = call_bedrock(prompts, model_id, aws_creds_block)
+    results = call_bedrock(prompts, aws_creds_block)
     save_output(results, output_file)
     return results
