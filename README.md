@@ -123,10 +123,3 @@ AI_Pipeline/
 - [Architecture Doc](docs/architecture.md)
 - [Technical Report](TECHNICAL_REPORT.md)
 
----
-
-## 🔮 Future Improvements
-
-- Integrate S3/DB for persistent storage
-- Add FastAPI backend (optional)
-- Stream real-time Claude output to UI
