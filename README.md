@@ -108,11 +108,10 @@ AI_Pipeline/
 ├── app.py                  # Streamlit frontend
 ├── pipeline.py             # Prefect flow and tasks
 ├── tests/                  # Unit tests
-├── docs/                   # Architecture doc
+├── docs/                   # Architecture doc and Technical Report
 ├── .env.example
 ├── requirements.txt
 ├── README.md
-├── TECHNICAL_REPORT.md
 └── coverage.txt
 ```
 
@@ -122,5 +121,5 @@ AI_Pipeline/
 
 - [Architecture Doc](docs/architecture.md)
 - [Technical Report](TECHNICAL_REPORT.md)
-- [Coverage](coverage.txt)
+
 
