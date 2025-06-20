@@ -1,0 +1,7 @@
+boto3
+prefect[aws]
+fastapi
+streamlit
+uvicorn
+pandas
+pydantic
