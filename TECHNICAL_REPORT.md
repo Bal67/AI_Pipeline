@@ -1,4 +1,4 @@
-# 📝 Technical Report: AI Pipeline with AWS Bedrock & Prefect
+# Technical Report: AI Pipeline with AWS Bedrock & Prefect
 
 ## 1. Project Overview
 
@@ -77,27 +77,6 @@ This project solves those issues by integrating Prefect (orchestration), AWS Bed
   coverage run -m pytest
   coverage report -m > coverage.txt
   ```
-- Results show >90% coverage for core pipeline modules.
+- Results show < 90% coverage for core pipeline modules.
 
----
 
-## 8. Challenges Faced
-
-- Boto3 integration with Bedrock required careful input structuring.
-- Managing asynchronous Prefect APIs inside Streamlit required use of `@sync_compatible`.
-- Prefect sort filters required specific enum strings, not intuitive syntax.
-
----
-
-## 9. Future Improvements
-
-- Store responses in a database or S3.
-- Stream Claude responses live.
-- Integrate FastAPI for backend task queuing.
-- Add role-based auth to the UI for team collaboration.
-
----
-
-## 10. Conclusion
-
-This AI pipeline demonstrates a robust and observable orchestration system that combines cloud-based AI inference with modern Python workflow management. It's easy to extend, monitor, and adapt to more advanced use cases.
