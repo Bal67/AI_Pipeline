@@ -1,17 +1,24 @@
-# 🧠 AI Pipeline with AWS Bedrock & Prefect
+# AI Pipeline with AWS Bedrock & Prefect
 
 This project implements a full-stack AI pipeline that uses **Prefect** for orchestration, **AWS Bedrock (Claude)** for text generation, and **Streamlit** as the UI. The pipeline allows users to submit prompts, trigger Claude 3 model inference, and monitor runs via logs and retry-aware workflows.
+___
+
+## Demo
+
+
+https://github.com/user-attachments/assets/9ab04aac-d303-46b4-a0cd-ed262d531488
+
 
 ---
 
-## 📦 Features
+## Features
 
-- ✅ Streamlit UI for prompt submission
-- ✅ Prefect flow with retries and logging
-- ✅ Integration with AWS Bedrock (Claude 3)
-- ✅ Monitoring via Prefect UI and Streamlit
-- ✅ Technical + architecture documentation
-- ✅ Test coverage report
+- Streamlit UI for prompt submission
+- Prefect flow with retries and logging
+- Integration with AWS Bedrock (Claude 3)
+- Monitoring via Prefect UI and Streamlit
+- Technical + architecture documentation
+- Test coverage report
 
 ---
 
@@ -27,7 +34,7 @@ This project implements a full-stack AI pipeline that uses **Prefect** for orche
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### 1. Clone the Repo
 
@@ -66,7 +73,7 @@ Submit a prompt, run the pipeline, and view the logs and results directly in the
 
 ---
 
-## 🧪 Testing & Coverage
+## Testing & Coverage
 
 To run tests and generate a coverage report:
 
@@ -84,7 +91,7 @@ open htmlcov/index.html
 
 ---
 
-## 📊 Monitoring
+## Monitoring
 
 - All flow runs and task-level logs are visible in the **Prefect UI**
 - Streamlit sidebar shows:
@@ -94,7 +101,7 @@ open htmlcov/index.html
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AI_Pipeline/
@@ -111,7 +118,7 @@ AI_Pipeline/
 
 ---
 
-## 📚 Docs
+## Docs
 
 - [Architecture Doc](docs/architecture.md)
 - [Technical Report](TECHNICAL_REPORT.md)
