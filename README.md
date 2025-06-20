@@ -122,4 +122,5 @@ AI_Pipeline/
 
 - [Architecture Doc](docs/architecture.md)
 - [Technical Report](TECHNICAL_REPORT.md)
+- [Coverage](coverage.txt)
 
